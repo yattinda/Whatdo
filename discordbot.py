@@ -1,5 +1,5 @@
 import discord
-import token
+from seacret import bot_token
 
 client = discord.Client()
 
