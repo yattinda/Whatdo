@@ -1,5 +1,6 @@
 import discord
-from seacret import bot_token
+import os
+from dotenv import load_dotenv
 
 client = discord.Client()
 @client.event
@@ -16,4 +17,5 @@ async def on_message(message):
             m = "おはようございます" + message.author.name + "さん！"
             await message.channel.send(m)
 
-client.run(bot_token)
+load_dotenv()
+client.run(os.getenv('BOT_TOKEN'))
