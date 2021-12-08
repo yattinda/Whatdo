@@ -2,6 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 from discord_buttons_plugin import *
+import requests
 
 from roomId import textChannel, voiceChannel
 
