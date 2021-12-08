@@ -7,7 +7,8 @@ import requests
 from roomId import textChannel, voiceChannel
 
 client = discord.Client()
-buttons = ButtonsClient(on_voice_state_update)
+bot = commands.Bot(command_prefix = "m!")
+buttons = ButtonsClient()
 
 @client.event
 async def on_ready():
