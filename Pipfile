@@ -8,8 +8,6 @@ verify_ssl = true
 [packages]
 "discord.py" = {extras = ["voice"], version = "*"}
 python-dotenv = "*"
-discord-buttons-plugin = "*"
-requests = "*"
 
 [requires]
 python_version = "3.8"

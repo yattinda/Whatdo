@@ -1,15 +1,11 @@
 import discord
 import os
 from dotenv import load_dotenv
-from discord.ext import commands
 from discord_buttons_plugin import *
-import requests
 
 from roomId import textChannel, voiceChannel
 
 client = discord.Client()
-bot = commands.Bot(command_prefix = "m!")
-buttons = ButtonsClient()
 
 @client.event
 async def on_ready():
@@ -27,24 +23,6 @@ async def on_voice_state_update(member, before, after):
         announceChannelIds = [777506678068477952]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
-        	await buttons.send(
-        		content = "今何してますか？",
-        		channel = botRoom,
-        		components = [
-        			ActionRow([
-        				Button(
-        					label="Hello",
-        					style=ButtonType().Primary,
-        					custom_id="button_hello"
-        				)
-        			]),ActionRow([
-        				Button(
-        					label="Ephemeral",
-        					style=ButtonType().Danger,
-        					custom_id="button_ephemeral"
-        				)
-        			])
-        		]
-        	)
+
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
