@@ -7,6 +7,8 @@ import requests
 from roomId import textChannel, voiceChannel
 
 client = discord.Client()
+buttons = ButtonsClient()
+
 @client.event
 async def on_ready():
     print('Logged in as')
