@@ -11,11 +11,10 @@ async def on_ready():
     print('------')
 
 @client.event
-async def on_message(message):
-    if message.content.startswith("Ahi"):
-        if client.user != message.author:
-            m = "おはようございます" + message.author.name + "さん！"
-            await message.channel.send(m)
+async def on_ready()
+    if client.user != message.author:
+        m = "おはようございます" + message.author.name + "さん！"
+        await message.channel.send(m)
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
