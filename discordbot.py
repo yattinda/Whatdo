@@ -24,6 +24,7 @@ async def on_voice_state_update(member, before, after):
         #監視対象のボイスチャンネル
         announceChannelIds = [777506678068477952]
 
+        print(member)
         if after.channel is not None and after.channel.id in announceChannelIds:
             buttons = [
             create_button(
