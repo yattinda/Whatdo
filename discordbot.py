@@ -28,7 +28,7 @@ async def on_voice_state_update(member, before, after):
             button = manage_components.create_button(style=ButtonStyle.green, label="Your channel")
             action_row = manage_components.create_actionrow(button)
 
-            await channel.send(content=f'Hello', components=[action_row])
+            await botRoom.send(content=f'Hello', components=[action_row])
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
