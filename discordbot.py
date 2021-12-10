@@ -2,7 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 
-from discord_slash.utils import manage_components
+from discord_slash.utils import manage_components create_button, create_actionrow
 from discord_slash.model import ButtonStyle
 
 from roomId import textChannel, voiceChannel
@@ -39,7 +39,7 @@ async def on_voice_state_update(member, before, after):
                 label="A blue Button"
             ),
           ]
-            action_row = manage_components.create_actionrow(buttons)
+            action_row = create_actionrow(buttons)
 
             await botRoom.send(content=f'Hello', components=[action_row])
 
