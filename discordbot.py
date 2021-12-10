@@ -2,7 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 
-from discord_slash.utils.manage_components import create_button, create_actionrow
+from discord_slash.utils.manage_components import create_button, create_actionrow, wait_for_component
 from discord_slash.model import ButtonStyle
 
 from roomId import textChannel, voiceChannel
@@ -44,8 +44,16 @@ async def on_voice_state_update(member, before, after):
             ),
           ]
             action_row = create_actionrow(*buttons)
-
             await botRoom.send(content=f'Hello', components=[action_row])
+
+@bot.event
+async def on_component(ctx: ComponentContext):
+    if ctx.custom_id == "free": # 検知するボタンのcustom_id
+   		await ctx.edit_origin(content="free")
+    if ctx.custom_id == "question": # 検知するボタンのcustom_idその2
+   		await ctx.edit_origin(content="question")
+    if ctx.custom_id == "notNotify": # 検知するボタンのcustom_idその2
+   		await ctx.edit_origin(content="notNotify")
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
