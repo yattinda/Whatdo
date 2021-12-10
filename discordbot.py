@@ -28,20 +28,23 @@ async def on_voice_state_update(member, before, after):
             buttons = [
             create_button(
                 style=ButtonStyle.green,
-                label="A Green Button"
+                label="暇！話したい！",
+                custom_id="free"
             ),
             create_button(
                 style=ButtonStyle.red,
-                label="A red Button"
+                label="質問したい！",
+                custom_id="question"
             ),
             create_button(
                 style=ButtonStyle.blue,
-                label="A blue Button"
+                label="通知しない",
+                custom_id="notNotify"
             ),
           ]
             action_row = create_actionrow(*buttons)
 
-            await botRoom.send(content=f'Hello', components=[action_row])
+            await botRoom.send(content=f'Hello', components=[action_row], ephemeral=True)
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
