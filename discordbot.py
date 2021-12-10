@@ -44,7 +44,7 @@ async def on_voice_state_update(member, before, after):
           ]
             action_row = create_actionrow(*buttons)
 
-            await member.response.send_message(content=f'Hello', components=[action_row], ephemeral=True)
+            await member.id.response.send_message(content=f'Hello', components=[action_row], ephemeral=True)
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
