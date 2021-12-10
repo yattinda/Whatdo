@@ -23,6 +23,7 @@ async def on_voice_state_update(member, before, after):
         botRoom = client.get_channel(777506677624799245)
         #監視対象のボイスチャンネル
         announceChannelIds = [777506678068477952]
+        member_id = member.author.id
 
         if after.channel is not None and after.channel.id in announceChannelIds:
             buttons = [
@@ -44,7 +45,7 @@ async def on_voice_state_update(member, before, after):
           ]
             action_row = create_actionrow(*buttons)
 
-            await client.user.response.send_message(content=f'Hello', components=[action_row], ephemeral=True)
+            await member_id.response.send_message(content=f'Hello', components=[action_row], ephemeral=True)
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
