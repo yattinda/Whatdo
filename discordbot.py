@@ -2,7 +2,7 @@ import discord
 import os
 from dotenv import load_dotenv
 
-from discord_slash.utils import manage_components, create_button, create_actionrow
+from discord_slash.utils.manage_components import create_button, create_actionrow
 from discord_slash.model import ButtonStyle
 
 from roomId import textChannel, voiceChannel
