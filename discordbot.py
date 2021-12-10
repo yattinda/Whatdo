@@ -1,7 +1,9 @@
 import discord
 import os
 from dotenv import load_dotenv
-from discord_buttons_plugin import *
+
+from discord_slash.utils.manage_components import create_button, create_actionrow
+from discord_slash.model import ButtonStyle
 
 from roomId import textChannel, voiceChannel
 
@@ -23,6 +25,16 @@ async def on_voice_state_update(member, before, after):
         announceChannelIds = [777506678068477952]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
+            buttons = [
+            create_button(
+                style=ButtonStyle.green,
+                label="A Green Button"
+                custom_id="push_message_button"
+            ),
+          ]
+
+        action_row = create_actionrow(*push_message_button)
+        await ctx.send("My Message", components=[action_row])
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
