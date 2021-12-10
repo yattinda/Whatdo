@@ -39,7 +39,7 @@ async def on_voice_state_update(member, before, after):
                 label="A blue Button"
             ),
           ]
-            action_row = create_actionrow(buttons)
+            action_row = create_actionrow(*buttons)
 
             await botRoom.send(content=f'Hello', components=[action_row])
 
