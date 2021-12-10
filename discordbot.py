@@ -25,8 +25,21 @@ async def on_voice_state_update(member, before, after):
         announceChannelIds = [777506678068477952]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
-            button = manage_components.create_button(style=ButtonStyle.green, label="Your channel")
-            action_row = manage_components.create_actionrow(button)
+            buttons = [
+            create_button(
+                style=ButtonStyle.green,
+                label="A Green Button"
+            ),
+            create_button(
+                style=ButtonStyle.red,
+                label="A red Button"
+            ),
+            create_button(
+                style=ButtonStyle.blue,
+                label="A blue Button"
+            ),
+          ]
+            action_row = manage_components.create_actionrow(buttons)
 
             await botRoom.send(content=f'Hello', components=[action_row])
 
