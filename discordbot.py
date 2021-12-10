@@ -23,7 +23,7 @@ async def on_voice_state_update(member, before, after):
         botRoom = client.get_channel(777506677624799245)
         #監視対象のボイスチャンネル
         announceChannelIds = [777506678068477952]
-        member_id = member.author.id
+        member_id = member.id
 
         if after.channel is not None and after.channel.id in announceChannelIds:
             buttons = [
