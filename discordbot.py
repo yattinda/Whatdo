@@ -25,9 +25,9 @@ async def on_voice_state_update(member, before, after):
         announceChannelIds = [777506678068477952]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
-            button = manage_components.create_button(style=ButtonStyle.URL, label="Your channel", url=f'https://discord.com/channels/{member.guild.id}/{channel.id}')
+            button = manage_components.create_button(style=ButtonStyle.URL, label="Your channel")
             action_row = manage_components.create_actionrow(button)
-            
+
             await channel.send(content=f'Hello', components=[action_row])
 
 load_dotenv()
