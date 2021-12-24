@@ -2,9 +2,6 @@ import discord
 import os
 from dotenv import load_dotenv
 
-from discord_slash.utils.manage_components import create_button, create_actionrow, wait_for_component
-from discord_slash.model import ButtonStyle
-
 from roomId import textChannel, voiceChannel
 
 client = discord.Client()
@@ -19,38 +16,11 @@ async def on_ready():
 @client.event
 async def on_voice_state_update(member, before, after):
     if before.channel != after.channel:
-        #書き込むテキストチャンネル
         botRoom = client.get_channel(777506677624799245)
-        #監視対象のボイスチャンネル
         announceChannelIds = [777506678068477952]
 
-        print(member)
         if after.channel is not None and after.channel.id in announceChannelIds:
-            buttons = [
-            create_button(
-                style=ButtonStyle.green,
-                label="暇！話したい！",
-                custom_id="free"
-            ),
-            create_button(
-                style=ButtonStyle.red,
-                label="質問したい！",
-                custom_id="question"
-            ),
-            create_button(
-                style=ButtonStyle.blue,
-                label="通知しない",
-                custom_id="notNotify"
-            ),
-          ]
-            action_row = create_actionrow(*buttons)
-            await botRoom.send(content=f'Hello', components=[action_row])
-
-@client.event
-async def on_interaction(interaction):
-    print(interaction)
-    await interaction.channel.send("Interactionが発生しました。")
-    await interaction.channel.send("id:{}\ntype:{}".format(interaction.id, interaction.type))
+            await botRoom.send(after.channel.name + "に" + member.name + "が参加！")
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
