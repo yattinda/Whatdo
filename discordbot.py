@@ -23,7 +23,9 @@ async def on_voice_state_update(member, before, after):
 
         if after.channel is not None and after.channel.id in announceChannelIds:
             view = discord.ui.View()
-            view.add_item(discord.ui.Button(style=discord.ButtonStyle.green, label="test"))
+            view.add_item(discord.ui.Button(style=discord.ButtonStyle.danger, label="暇！"))
+            view.add_item(discord.ui.Button(style=discord.ButtonStyle.primary, label="質問したい！"))
+            view.add_item(discord.ui.Button(style=discord.ButtonStyle.secondary, label="通知しない"))
             await botRoom.send("これはボタンです。", view=view)
 
 @client.event
