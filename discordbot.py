@@ -32,6 +32,7 @@ async def on_voice_state_update(member, before, after):
 async def on_interaction(interaction):
     await interaction.channel.send("Interactionが発生しました。")
     await interaction.channel.send("id:{}\ntype:{}".format(interaction.id, interaction.type))
+    await interaction.delete_original_message()
 
 load_dotenv()
 client.run(os.getenv('BOT_TOKEN'))
