@@ -29,6 +29,15 @@ async def on_voice_state_update(member, before, after):
             await botRoom.send("何をしていますか？", view=view)
 
 @client.event
+async def on_message(message):
+    if not message.author.bot:
+        return
+
+    if "何を" in message.content:
+        await asyncio.sleep(10)
+        await message.delete()
+
+@client.event
 async def on_interaction(interaction):
     if interaction.data['custom_id'] == 'free':
         await interaction.channel.send(f'@everyone \n{interaction.user.display_name}は暇しています！\nお話してあげましょう！')
