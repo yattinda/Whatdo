@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import asyncio
 
 from roomId import textChannel, voiceChannel
+import words
 
 client = discord.Client()
 
@@ -24,6 +25,8 @@ async def on_voice_state_update(member, before, after):
         announceChannelIds = [777506678068477952]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
+            join_mes = random.choice(words.F_words) + random.choice(words.L_words)
+            await botRoom.send("ようこそ! " + join_mes+ " " + member.display_name)
             view = discord.ui.View()
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.danger, custom_id="free", label="暇！"))
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.primary, custom_id="question", label="質問したい！"))
