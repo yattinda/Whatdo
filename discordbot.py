@@ -31,7 +31,7 @@ async def on_voice_state_update(member, before, after):
 @client.event
 async def on_interaction(interaction):
     await interaction.channel.send("Interactionが発生しました。")
-    await interaction.channel.send("id:{}\ntype:{}".format(interaction.id, interaction.type))
+    await interaction.channel.send("id:{}\ntype:{}\ndata:{}\nuser:{}\nmessage".format(interaction.id, interaction.type, interaction.data, interaction.user, interaction.message))
     await interaction.delete_original_message()
 
 load_dotenv()
