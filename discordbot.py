@@ -36,6 +36,7 @@ async def on_interaction(interaction):
         await interaction.channel.send(f'@everyone \n{interaction.user.display_name}は質問があるようです！！！')
     else :
         return
+    interaction.data['custom_id'] = ""
     await interaction.delete_original_message()
 
 load_dotenv()
