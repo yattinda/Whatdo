@@ -30,8 +30,12 @@ async def on_voice_state_update(member, before, after):
 
 @client.event
 async def on_interaction(interaction):
-    await interaction.channel.send("Interactionが発生しました。")
-    await interaction.channel.send("id:{}\ntype:{}\ndata:{}\nuser:{}\nmessage".format(interaction.id, interaction.type, interaction.data, interaction.user, interaction.message))
+    if interaction.data['custom_id'] == 'free':
+        await interaction.channel.send(f'{interaction.user.display_name}は暇しています！\nお話してあげましょう！')
+    elif interaction.data['custom_id'] == 'question':
+        await interaction.channel.send(f'{interaction.user.display_name}は質問があるようです！！！')
+    else :
+        return
     await interaction.delete_original_message()
 
 load_dotenv()
