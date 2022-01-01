@@ -2,6 +2,8 @@ import discord
 import os
 from dotenv import load_dotenv
 
+import asyncio
+
 from roomId import textChannel, voiceChannel
 
 client = discord.Client()
