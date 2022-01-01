@@ -36,7 +36,7 @@ async def on_message(message):
         return
 
     if "何を" in message.content:
-        await asyncio.sleep(10)
+        await asyncio.sleep(120)
         await message.delete()
 
 @client.event
