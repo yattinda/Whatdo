@@ -26,7 +26,7 @@ async def on_voice_state_update(member, before, after):
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.danger, custom_id="free", label="暇！"))
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.primary, custom_id="question", label="質問したい！"))
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.secondary, custom_id="notnotifier", label="通知しない"))
-            await botRoom.send("これはボタンです。", view=view)
+            await botRoom.send("何をしていますか？", view=view)
 
 @client.event
 async def on_interaction(interaction):
