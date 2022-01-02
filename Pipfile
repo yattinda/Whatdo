@@ -9,6 +9,7 @@ verify_ssl = true
 "discord.py" = {git = "https://github.com/Rapptz/discord.py"}
 python-dotenv = "*"
 asyncio = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.8"
