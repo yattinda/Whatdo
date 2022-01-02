@@ -30,7 +30,7 @@ async def on_voice_state_update(member, before, after):
             join_mes = random.choice(words.F_words) + random.choice(words.L_words)
             await botRoom.send("ようこそ! " + join_mes + " " + member.display_name)
             view = discord.ui.View()
-            view.add_item(discord.ui.Button(style=discord.ButtonStyle.danger, custom_id="free", label="暇！"))
+            view.add_item(discord.ui.Button(style=discord.ButtonStyle.danger, custom_id="free", label="暇！お話したい！"))
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.primary, custom_id="question", label="質問したい！"))
             view.add_item(discord.ui.Button(style=discord.ButtonStyle.secondary, custom_id="notnotifier", label="通知しない"))
             await botRoom.send("何をしていますか？？？？", view=view)
