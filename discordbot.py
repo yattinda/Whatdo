@@ -22,9 +22,9 @@ async def on_ready():
 async def on_voice_state_update(member, before, after):
     if before.channel != after.channel:
         # botが書き込むチャンネル
-        botRoom = client.get_channel(777506677624799245)
+        botRoom = client.get_channel(textChannel["attend-list"])
         # 監視対象のボイスチャンネル
-        announceChannelIds = [777506678068477952]
+        announceChannelIds = [voiceChannel["virtual-216"]]
 
         if after.channel is not None and after.channel.id in announceChannelIds:
             join_mes = random.choice(words.F_words) + random.choice(words.L_words)
