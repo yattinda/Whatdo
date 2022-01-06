@@ -17,7 +17,6 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-
 @client.event
 async def on_voice_state_update(member, before, after):
     if before.channel != after.channel:
