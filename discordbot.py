@@ -55,9 +55,9 @@ async def on_message(message):
 
 @client.event
 async def on_interaction(interaction):
-    plus_utc_to_jst = 9
-    jst_hour = datetime.datetime.now().hour + plus_utc_to_jst
-    mention_word = "@everyone" if jst_hour > 6 else ""
+    utc_hour = datetime.datetime.now().hour
+    # 9時間の時差(UTCでは00:00~06:00)
+    mention_word = "@everyone" if 15 < utc_hour < 21 else ""
     if interaction.data['custom_id'] == 'free':
         await interaction.channel.send(f'{mention_word} \n{interaction.user.display_name}は暇しています！\nお話してあげましょう！')
     elif interaction.data['custom_id'] == 'question':
